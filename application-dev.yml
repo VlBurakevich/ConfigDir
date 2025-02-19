@@ -1,29 +1,31 @@
 spring:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: validate
+
   datasource:
     url: jdbc:postgresql://localhost:5432/mydatabase
     username: root
     password: root
     driver-class-name: org.postgresql.Driver
 
-  jpa:
-    show-sql: true
-    properties.hibernate.format_sql: true
-    hibernate.ddl-auto: validate
-
-
-
 logging:
-  pattern:
-    console: >
-      %d{yyyy-MM-dd HH:mm:ss} 
-      %highlight(%-5level){FATAL=red,ERROR=boldRed,WARN=yellow,INFO=green,DEBUG=cyan,TRACE=magenta} 
-      [%boldBlue(%thread)] 
-      %boldMagenta(%logger{36}) 
-      - %msg
   file:
     name: logs/dev.log
   level:
     root: debug
+    org.springframework: INFO
+    org.hibernate: INFO
+    org.apache.tomcat: WARN
+    com.zaxxer.hikari: WARN
+    org.postgresql: WARN
+    org.senla: DEBUG
+    javax.management: ERROR
+    sun.rmi: OFF
 
 jwt:
   secret:
