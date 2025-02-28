@@ -15,3 +15,8 @@ spring:
         format_sql: true
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yml
+
+jwt:
+  secret:
+    key: 045Pg0+Uh2FPNTgus9OeZ83npvpAROFtcHuNsvk4Ej0=
+  lifetime: 3600000    
